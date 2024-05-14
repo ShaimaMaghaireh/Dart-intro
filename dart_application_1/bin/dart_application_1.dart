@@ -1,8 +1,8 @@
-
+import 'dart:io';
 
 void main() {
 
-  int x=10;
+ /* int x=10;
   print(x);
 
   print('shaima');
@@ -15,7 +15,7 @@ void main() {
 
   bool test=false;
   print(test);
-  
+
 
   Map person={'name':'shaima','age':20,'city':'seoul'};
   print(person);
@@ -77,5 +77,92 @@ print(a<=b);
 print(a!=b);
 print(a is int);
 print(93.5 is int);
-print(93.5 is! int);
+print(93.5 is! int);*/
+
+/*int y=9;
+if(y==10)
+{
+  print('y is 10');
 }
+
+else if (y>10)
+{
+  print('y is greater than 10');
+}
+else if (y<10)
+{
+  print('y is less than 10');
+}
+else {
+  print('y is not 10');
+}*/
+
+/*int x=7;
+if(x==4)
+{
+  print('x = 4');
+}
+if(x>5)
+{
+  print('x > 5');
+}
+if(x<5)
+{
+print('x < 5');
+}
+else{
+  print('x is not found');
+}*/
+
+/*String name='tala';
+switch (name) {
+  case 'shaima':
+  print('this is shaima');
+    break;
+     case 'bushara':
+  print('this is bushra');
+    break;
+     case 'ekram':
+  print('this is ekram');
+    break;
+  default:
+  print('the name is not found');
+}*/
+/*print("""
+1_login
+2_register
+3_exit""");
+int  choice = int.parse(stdin.readLineSync()!);
+//print('your choice is $choice');
+//print(choice is String);
+if(choice == 1)
+{
+print('your choice is login');
+}
+else if(choice == 2)
+{
+print('your choice is register');
+}
+else if(choice == 3)
+{
+  print('choice is exit ');
+}else {  print('wrong choice');}*/
+int choice;
+try{
+  choice = int.parse(stdin.readLineSync()!);
+}
+ catch (e){
+choice=0;
+print('value is not int');
+ }
+for(int i=0;i<choice;i++)
+{
+  print(i);
+}
+
+
+
+
+}
+
+
