@@ -147,7 +147,7 @@ else if(choice == 3)
 {
   print('choice is exit ');
 }else {  print('wrong choice');}*/
-int choice;
+/*int choice;
 try{
   choice = int.parse(stdin.readLineSync()!);
 }
@@ -158,12 +158,114 @@ print('value is not int');
 for(int i=0;i<choice;i++)
 {
   print(i);
+}*/
+
+/*void test(int x)
+{
+  print('this is test ${x+5}');
+
 }
 
-print('shaima');
+test(4);
 
+String val()
+{
+  return 'Welcome';
+}
 
+print(val());
 
+String val2(String a)
+{
+  String z=a;
+  return z;
+}
+
+print(val2('s'));*/
+
+/*void entnum(int a,int b,String op)
+{
+
+switch (op) {
+  case '+':
+   print(a+b);
+     break;
+     case '-':
+   print(a-b);
+     break;
+     case '*':
+   print(a*b);
+     break;
+     case '/':
+   print(a/b);
+     break;
+  default:
+  print('the operation not found');
+}
+}
+
+entnum(2,3,'+');
+entnum(2,3,'*');
+entnum(2,3,'/');
+entnum(2,3,'-');*/
+
+/*Map student={'name':'shaima','age':20,'grade':'93'};
+int  Major(int  g)
+{
+
+  switch (g) {
+    case >65 && <75 :
+    print('your major is English Language');
+      break;
+      case >75 && <85:
+    print('your major is Mathmatics');
+      break;
+      case >85 && <95:
+    print('your major is Computer Sience');
+      break;
+    default:
+    print('Choose any Major you want ');
+  }
+  return g;
+}
+print(Major(95));*/
+
+/*int primnum(int a)
+{
+  for(int i=0;i<10;i++)
+  {
+    if(a%2==0 && a/a==1)
+    {
+      print('A is not primary number');
+    }
+   
+    else if(a%2 != 0 && a/1==a)
+    {
+      print('A is primary number');
+    }
+    else 
+    {
+      print('syntax error');
+    }
+  }
+ return a;
+}
+
+print(primnum(0));*/
+
+String hello='hello';
+String newhello='';
+for(int i=0;i<hello.length;i++)
+{
+  if(hello[i]=='l')
+  {
+    newhello +='*';
+  }
+  else{
+    newhello += hello[i]; 
+  }
+  print(newhello);
+}
 
 }
 
