@@ -3,7 +3,7 @@ void main()
 {
 
   //TASK 2:
-  print("""
+  /*print("""
 1_Register
 2_Login
 3_Exit """
@@ -65,5 +65,30 @@ int sumofnum(int a,int  b,int c,int d)
   int z =a+b+c+d;
  return z;
  }
-print(sumofnum(1,2,3,5));
+print(sumofnum(1,2,3,5));*/
+
+//Taask 3
+String replacechar(String input) {
+  if (input.isEmpty) return '';
+
+  String result = '';
+  int count = 1;
+
+  for (int i = 1; i < input.length; i++) {
+    if (input[i] == input[i - 1]) {
+      count++;
+    } else {
+      result += '${input[i - 1]}${count > 1 ? count : ''}';
+      count = 1;
+    }
+  }
+  
+  result += '${input[input.length - 1]}${count > 1 ? count : ''}';
+
+  return result;
+}
+
+  String input = "assseeeddcc";
+  String output = replacechar(input);
+  print(output); 
 }
