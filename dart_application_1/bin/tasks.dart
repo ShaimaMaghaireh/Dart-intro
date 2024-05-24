@@ -1,3 +1,4 @@
+
 import 'dart:io';
 void main()
 {
@@ -68,7 +69,7 @@ int sumofnum(int a,int  b,int c,int d)
 print(sumofnum(1,2,3,5));*/
 
 //Taask 3
-String replacechar(String input) {
+/*String replacechar(String input) {
   if (input.isEmpty) return '';
 
   String result = '';
@@ -90,5 +91,152 @@ String replacechar(String input) {
 
   String input = "assseeeddcc";
   String output = replacechar(input);
-  print(output); 
+  print(output); */
+
+  //TASK 4:
+ print(""" 
+ Welcome to our Hang Man game
+ here is the rules:
+ you have 6 chances to guess
+  """);
+ bool isrunning= true;
+ String guess;
+ int turn=1;
+ List <String> spaces=[];
+ String secret=stdin.readLineSync()!;
+ print(""" 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ """); 
+ for(int i=0;i<secret.length;i++)
+ {
+   spaces.add('_');
+ }
+ print (spaces);
+
+ while(isrunning)
+ {
+  print('enter your guess');
+  String guess=stdin.readLineSync()!;
+  if(guess.length>1)
+  {
+    print('enter one character');
+    continue;
+
+  }
+  
+    bool isguess=false;
+ for(int i=0;i<secret.length;i++)
+  {
+    
+    if(secret[i]==guess)
+    {
+      spaces[i]=guess;
+      isguess=true;
+    }
+   if( spaces.join()==secret)
+      {
+        isrunning=false;
+        print('you win this game');
+       break;
+      }
+  }
+
+  if(isguess==false)
+  {
+   turn+=1;
+   
+    print('your guess is wrong');
+  
+    switch (turn ) {
+      case  1:
+      print("""
+
+
+_ _ _ _ _ _ _""");
+         break;
+         case 2:
+      print("""
+|
+|
+|
+|
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+              case 3:
+      print("""
+_ _ _ _ _
+|
+|
+|
+|
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+                case 4:
+      print("""
+_ _ _ _ _
+|        |
+|         
+|
+|
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+         case 5:
+      print("""
+_ _ _ _ _
+|        |
+|        |        
+|
+|
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+
+case 6:
+      print("""
+_ _ _ _ _
+|        |
+|        |        
+|        O
+|       
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+    case 7:
+      print("""
+_ _ _ _ _
+|        |
+|        |        
+|        O
+|       /|/
+_ _ _ _ _ _ _""");
+print('turn: $turn');
+         break;
+    }
+    if(turn>6)
+     {
+      print('you lose the game');
+      break;
+    }
+  }
+  
+  print(spaces);
+
+  }
+  
+  
 }
