@@ -17,7 +17,7 @@ import 'dart:io';
     print('Publishing House: $publisher');
   }
 }*/
-
+//Task 6:
 class product
 {
 String name;
