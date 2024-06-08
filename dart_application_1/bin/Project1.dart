@@ -129,87 +129,69 @@ type what you want to discover,either the book list,novel list or buy or rent'''
 print('note:enter a capital latter at first of the word!!');
 String explore=stdin.readLineSync()!;
    
-   for(int i=0;i<5;i++)
-   {
-  if(explore=='Book List')
-  {
-    print('This is the cuurent list of books:');
-    print(b1);
-    print(b2);
-  }
+  //  for(int i=0;i<5;i++)
+  //  {
+  // if(explore=='Book List')
+  // {
+  //   print('This is the cuurent list of books:');
+  //   print(b1);
+  //   print(b2);
+  // }
 
-  print('If want another thing,then type it :');
-  explore=stdin.readLineSync()!;
-//   print('If want to exit,enter 3 :');
-//  choose=stdin.readLineSync()!;
+  // print('If want another thing,then type it :');
+  // explore=stdin.readLineSync()!;
 
-
-  if(explore=='Novel List')
-  {
-    print('This is the cuurent list of novels:');
-      print(b2);
-  }
-   print('If want another thing,then type it :');
-  explore=stdin.readLineSync()!;
-
-  if(explore=='Rent Book')
-  {
-     b1.rint();
-  }
-
- print('If want another thing,then type it :');
-  explore=stdin.readLineSync()!;
-
-  if(explore=='Buy Book')
-  {
-    b1.buy();
-  }
-
- print('you explored every thing in the library !');
-  break;
-   }
-   break;
-}
-
-// switch (explore)
-//  {
-//   case 'Book List':
-//      print('This is the cuurent list of books:');
-//      print(b1);
-//       print(b2);
-//      break;
-//   case 'Novel List':
-//      print('This is the cuurent list of novels:');
-//      print(b2);
-//      break;
-//   case 'Rent Book':
-//   print('Type book name and we will check if it is available.');
-//   b1.rint();
-//   break;
-//   case 'Buy Book':
-//   //print('Type book name and we will check if it is available.');
-//   b1.buy();
-//   break;
-//   default:
-//   print('Sorry,we can not found what you want!!!! Try again');
-//   break;
-//   // explore=stdin.readLineSync()!;
-//  }
-//   explore=stdin.readLineSync()!;
-// print('enter another thing if you want,else press enter to exit.');
-// explore=stdin.readLineSync()!;
-// if(explore==stdin.readLineSync()!)
-// {
-// continue;
-// }
-// else
-// {
-//   if(explore!=stdin.readLineSync()!)
+//   if(explore=='Novel List')
 //   {
-//     break;
+//     print('This is the cuurent list of novels:');
+//       print(b2);
+//   }
+//    print('If want another thing,then type it :');
+//   explore=stdin.readLineSync()!;
+
+//   if(explore=='Rent Book')
+//   {
+//      b1.rint();
 //   }
 
-// }
+//  print('If want another thing,then type it :');
+//   explore=stdin.readLineSync()!;
+
+//   if(explore=='Buy Book')
+//   {
+//     b1.buy();
+//   }
+
+//  print('you explored every thing in the library !');
+//   break;
+//    }
+for(int i=0;i<5;i++)
+{
+  switch (explore)
+ {
+  case 'Book List':
+     print('This is the cuurent list of books:');
+     print(b1);
+      print(b2);
+     break;
+  case 'Novel List':
+     print('This is the cuurent list of novels:');
+     print(b2);
+     break;
+  case 'Rent Book':
+  print('Type book name and we will check if it is available.');
+  b1.rint();
+  break;
+  case 'Buy Book':
+  b1.buy();
+  break;
+  default:
+  print('you explored every thing in the library !');
+ }
+ break;
+}
+   break;
+}
 
 
 }
