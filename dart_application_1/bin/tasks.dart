@@ -3,7 +3,7 @@ import 'dart:io';
 void main()
 {
 
-  //TASK 2:
+  //? TASK 2:
   /*print("""
 1_Register
 2_Login
@@ -68,7 +68,7 @@ int sumofnum(int a,int  b,int c,int d)
  }
 print(sumofnum(1,2,3,5));*/
 
-//Taask 3
+//? Task 3
 /*String replacechar(String input) {
   if (input.isEmpty) return '';
 
@@ -93,7 +93,7 @@ print(sumofnum(1,2,3,5));*/
   String output = replacechar(input);
   print(output); */
 
-  //TASK 4:
+  //todo TASK 4:
  print(""" 
  Welcome to our Hang Man game
  here is the rules:

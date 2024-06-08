@@ -43,7 +43,19 @@ void replace()
 }
 
 }*/
-class Book
+class Library
+{
+String name;
+String location;
+Library({required this.name,required this.location});
+
+String toString()
+{
+  return 'this Library info: $name,$location';
+}
+
+}
+class Book extends Library
 {
    String _id;// when we use _ it become private 
    String name;
@@ -53,7 +65,18 @@ class Book
    int year;
    String discription;
    List categories;
-  Book({  required String id,required this.name, required this.author,required  double LibraryPrice,required this.year,required this.discription,required this.categories}):_id=id,_LibraryPrice=LibraryPrice,price=(LibraryPrice+(LibraryPrice*0.15));
+  Book(
+    {  required String id,
+    required this.name,
+     required this.author,
+     required  double LibraryPrice,
+     required this.year,
+     required this.discription,
+     required this.categories,
+     required String libraryName,
+     required String libraryLocation})
+     :_id=id,_LibraryPrice=LibraryPrice,price=(LibraryPrice+(LibraryPrice*0.15))
+     ,super(name:libraryName,location:libraryLocation);
 
 String get id=>_id;
 
@@ -83,11 +106,44 @@ void mark()
 }
 
 }
+
+abstract class Shape
+{
+  double area();//abstract method
+
+}
+class Circle extends Shape
+{
+double radius;
+Circle(this.radius);
+@override 
+double area()
+{
+  return 3.14*radius*radius;
+}
+}
+class rectangel extends Shape
+{
+double width;
+double height;
+rectangel(this.height,this.width);
+@override 
+double area()
+{
+  return width*height;
+}
+
+}
 void main()
 {
+
+  Circle c1=Circle(3);
+  print(c1.area());
+  rectangel r1=rectangel(12, 5);
+  print(r1.area());
   //print('Participating writers in the Book Fair :');
   //NovelWriters().writerinfo();
-  Book book1=Book( id:'003',name:'Soqotra',author: 'Hanan',LibraryPrice:5,year:2022 ,discription: 'About Soqotra Island',categories:['novel','fantasy']);
+ /* Book book1=Book( id:'003',name:'Soqotra',author: 'Hanan',LibraryPrice:5,year:2022 ,discription: 'About Soqotra Island',categories:['novel','fantasy']);
 print(book1);
 
 //Book book2=Book('Khawiah','Ayman Otoom',5,2015,'About different kinds of war',['novel','life']);
@@ -107,7 +163,7 @@ print(book1);
 
 //product p2=product('Chocolate cake',987457,3.50,2024,['dark chocolate','sugar','flour']);
 //print('Product 2: $p2');
-
+*/
 /*p1.Buy();
 p1.replace();
 p2.Buy();

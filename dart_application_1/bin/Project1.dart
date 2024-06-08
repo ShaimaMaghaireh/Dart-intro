@@ -11,16 +11,26 @@ class books
   String discription;
   List categories;
   bool isavailable;
+
   books({required String id,required this.title,required this.author,required double LibraryPrice,required this.year,required this.discription,required this.categories,required bool isavailable}):_id=id,_LibraryPrice=LibraryPrice,price=(LibraryPrice+(LibraryPrice*0.15)),isavailable=true;
 
-  String get id=>_id;
+  //? String get id=>_id;
   String toString()
 {
-  return 'this book info: $_id,$title,$author,$price,$year,$categories,$discription,$isavailable';
+  return ' book information: $_id,$title,$author,$price,$year,$categories,$discription,$isavailable';
 }
 
-
+String? rint()
+{
+  print('You rint the book $title for week ');
+  
 }
+String? buy()
+{
+  print('You buy this book $title ');
+}
+}
+
 void main()
 {
 print('''                                 *                    *
@@ -28,14 +38,12 @@ print('''                                 *                    *
                                 * *                  * *
                                  Welcome to my BOOK SHOP ''');
  print("""
-
-
 """);
 print('''
 
        _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
       |                   |                         |                        |
-      |     {search:}     |    {Book List}          |     {Categories}       |
+      |     {Book List}   |    {Novel List}         |     {Buy or rent}      |
       |_ _ _ _ _ _ _ _ _ _| _ _ _ _ _ _ _ _ _ _ _ _ |_ _ _ _ _ _ _ _ _ _ _ _ |
       | <<Home>>    *** Join us whith our passion for reading ***            |
       |  1)Register                                                          |
@@ -64,6 +72,8 @@ String? emailpass;
 
 String choose=stdin.readLineSync()!;
 
+for(int i=0;i<=3;i++)
+{
 if(choose=='1')
 {
   print(''' # Your choice is register.''');
@@ -92,24 +102,114 @@ if(choose=='1')
       else 
       {
        print('# Wrong information,try again !!!');
-       /*print('User name:');
-       user=stdin.readLineSync();
-       print('Password:');
-       password=stdin.readLineSync();
 
+       user=stdin.readLineSync();
+       password=stdin.readLineSync();
+       print('# Check your User name and Password:');
        if(user==stdin.readLineSync() && password==stdin.readLineSync())
       {
         print('# You Logged in successfuly. ');
-      }*/
       }
-       
+      }   
   }
-
- else if(choose=='3')
+ 
+  if(choose=='3')
  {
-  print('# Your choice is Exit.');
+  print('# Your choice is Exit.See you later!');
+   break;
  }
 
+
+
  books b1=books(id:'001',title:'Ikadoli',author:'Hanan Lasheen',LibraryPrice:5,year:2015,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
- print(b1);
+books b2=books(id:'002',title:'Opal',author:'Hanan Lasheen',LibraryPrice:4,year:2016,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+print('''                       Welcome to my Library
+              Now you can discover our books and novels!
+type what you want to discover,either the book list,novel list or buy or rent''');
+print('note:enter a capital latter at first of the word!!');
+String explore=stdin.readLineSync()!;
+   
+   for(int i=0;i<5;i++)
+   {
+  if(explore=='Book List')
+  {
+    print('This is the cuurent list of books:');
+    print(b1);
+    print(b2);
+  }
+
+  print('If want another thing,then type it :');
+  explore=stdin.readLineSync()!;
+//   print('If want to exit,enter 3 :');
+//  choose=stdin.readLineSync()!;
+
+
+  if(explore=='Novel List')
+  {
+    print('This is the cuurent list of novels:');
+      print(b2);
+  }
+   print('If want another thing,then type it :');
+  explore=stdin.readLineSync()!;
+
+  if(explore=='Rent Book')
+  {
+     b1.rint();
+  }
+
+ print('If want another thing,then type it :');
+  explore=stdin.readLineSync()!;
+
+  if(explore=='Buy Book')
+  {
+    b1.buy();
+  }
+
+ print('you explored every thing in the library !');
+  break;
+   }
+   break;
+}
+
+// switch (explore)
+//  {
+//   case 'Book List':
+//      print('This is the cuurent list of books:');
+//      print(b1);
+//       print(b2);
+//      break;
+//   case 'Novel List':
+//      print('This is the cuurent list of novels:');
+//      print(b2);
+//      break;
+//   case 'Rent Book':
+//   print('Type book name and we will check if it is available.');
+//   b1.rint();
+//   break;
+//   case 'Buy Book':
+//   //print('Type book name and we will check if it is available.');
+//   b1.buy();
+//   break;
+//   default:
+//   print('Sorry,we can not found what you want!!!! Try again');
+//   break;
+//   // explore=stdin.readLineSync()!;
+//  }
+//   explore=stdin.readLineSync()!;
+// print('enter another thing if you want,else press enter to exit.');
+// explore=stdin.readLineSync()!;
+// if(explore==stdin.readLineSync()!)
+// {
+// continue;
+// }
+// else
+// {
+//   if(explore!=stdin.readLineSync()!)
+//   {
+//     break;
+//   }
+
+// }
+
+
 }
