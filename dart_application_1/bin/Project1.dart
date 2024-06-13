@@ -72,7 +72,7 @@ String? emailpass;
 
 String choose=stdin.readLineSync()!;
 
-for(int i=0;i<=3;i++)
+for(int i=0;i<=3;)
 {
 if(choose=='1')
 {
@@ -165,8 +165,7 @@ String explore=stdin.readLineSync()!;
 //  print('you explored every thing in the library !');
 //   break;
 //    }
-for(int i=0;i<5;i++)
-{
+
   switch (explore)
  {
   case 'Book List':
@@ -187,11 +186,10 @@ for(int i=0;i<5;i++)
   break;
   default:
   print('you explored every thing in the library !');
+
  }
- break;
-}
-   break;
-}
+// explore=stdin.readLineSync()!;
+ break;}
 
 
 }

@@ -1,139 +1,91 @@
+//import 'dart:html';
 import 'dart:io';
 
-class Book {
-  String title;
-  String author;
-  String isbn;
-  String bookType; //? 'ebook' or 'physical'
-  bool isLent = false;
+import 'Project1.dart';
 
-  Book(this.title, this.author, this.isbn, this.bookType);
+ class Book {
+  final String title;
+  final String author;
+  final String id;
+  bool isLent;
 
-  @override
-  String toString() {
-    return '$title by $author (ISBN: $isbn, Type: $bookType, Lent: $isLent)';
-  }
-}
-class PhysicalBook extends Book {
-  int pages;
-
-  PhysicalBook(String title, String author, String isbn, this.pages)
-      : super(title, author, isbn, 'physical');
-}
-
-class EBook extends Book {
-  String fileSize;
-
-  EBook(String title, String author, String isbn, this.fileSize)
-      : super(title, author, isbn, 'ebook');
-}
-class Member {
-  int memberId;
-  String name;
-  List<Book> borrowedBooks = [];
-
-  Member(this.memberId, this.name);
-
-  bool borrowBook(Book book) {
-    if (book.isLent) {
-      print("Sorry, the book '${book.title}' is already lent out.");
-      return false;
-    }
-    book.isLent = true;
-    borrowedBooks.add(book);
-    return true;
-  }
-
-  bool returnBook(Book book) {
-    if (borrowedBooks.contains(book)) {
-      book.isLent = false;
-      borrowedBooks.remove(book);
-      return true;
-    }
-    return false;
-  }
+  Book(this.title, this.author, this.id, [this.isLent = false]);
 
   @override
   String toString() {
-    var borrowedTitles = borrowedBooks.map((book) => book.title).join(', ');
-    return 'Member $name (ID: $memberId) has borrowed: $borrowedTitles';
+    return 'Book: $title by $author (ID: $id)';
   }
+}
+
+class Novel extends Book {
+  Novel(String title, String author, String id) : super(title, author, id);
+}
+
+class Classic extends Book {
+  Classic(String title, String author, String id) : super(title, author, id);
 }
 class Library {
-  List<Book> books = [];
-  List<Member> members = [];
+  final List<Book> books = [];
 
   void addBook(Book book) {
     books.add(book);
+    print('Added: ${book.title}');
   }
 
-  List<Book> searchBooks({String? title, String? author, String? isbn}) {
-    var results = books;
-    if (title != null) {
-      results = results.where((book) => book.title.toLowerCase().contains(title.toLowerCase())).toList();
-    }
-    if (author != null) {
-      results = results.where((book) => book.author.toLowerCase().contains(author.toLowerCase())).toList();
-    }
-    if (isbn != null) {
-      results = results.where((book) => book.isbn == isbn).toList();
-    }
-    return results;
-  }
+  void lendBook(String bookId) {
+    Book? book = books.firstWhere((book) => book.id == bookId);
+    
+  //  orElse:(() => null ) ;
 
-  void lendBook(Book book, Member member) {
-    if (member.borrowBook(book)) {
-      print("Book '${book.title}' has been lent to ${member.name}.");
+    if (book == null) {
+      print('Book not found.');
+    } else if (book.isLent) {
+      print('Book is already lent.');
     } else {
-      print("Could not lend book '${book.title}' to ${member.name}.");
+      book.isLent = true;
+      print('Book ${book.title} has been lent.');
     }
   }
 
-  void returnBook(Book book, Member member) {
-    if (member.returnBook(book)) {
-      print("Book '${book.title}' has been returned by ${member.name}.");
+  void buyBook(Book book) {
+    addBook(book);
+    print('Book ${book.title} has been bought.');
+  }
+
+  void searchBooks(String query) {
+    List<Book> results = books.where((book) => 
+      book.title.toLowerCase().contains(query.toLowerCase()) ||
+      book.author.toLowerCase().contains(query.toLowerCase())
+    ).toList();
+
+    if (results.isEmpty) {
+      print('No books found.');
     } else {
-      print("Could not return book '${book.title}' by ${member.name}.");
+      print('Search results:');
+      results.forEach((book) => print(book));
     }
   }
 }
-void main()
-{
-//todo create 
-//? task
-//! important
+ void main() {
+  Library library = Library();
 
-void main() {
-  // Create a library
-  var library = Library();
+  // Adding books
+  library.addBook(Novel('The Great Gatsby', 'F. Scott Fitzgerald', '1'));
+  library.addBook(Classic('Pride and Prejudice', 'Jane Austen', '2'));
+  library.addBook(Novel('1984', 'George Orwell', '3'));
 
-  // Add books
-  var book1 = PhysicalBook("1984", "George Orwell", "1234567890", 328);
-  var book2 = EBook("Brave New World", "Aldous Huxley", "2345678901", "2MB");
-  library.addBook(book1);
-  library.addBook(book2);
+  // Search books
+  library.searchBooks('1984');
 
-  // Add a member
-  var member = Member(1, "John Doe");
-  library.members.add(member);
+  // Lend a book
+  library.lendBook('3');
 
-  // Search for books
-  print("Search Results:");
-  for (var book in library.searchBooks(author: "Orwell")) {
-    print(book);
-  }
+  // Try lending the same book again
+  library.lendBook('3');
 
-  //todo Lend a book to a member
-  library.lendBook(book1, member);
+  // Buy a new book
+  library.buyBook(Novel('Brave New World', 'Aldous Huxley', '4'));
 
-  //todo Check member's borrowed books
-  print(member);
-
-  //todo Return a book
-  library.returnBook(book1, member);
-
-  //todo Check member's borrowed books after returning
-  print(member);
-}
-
+  // Search for a non-existing book
+  library.searchBooks('Moby Dick');
 }
