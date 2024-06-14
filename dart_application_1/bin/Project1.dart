@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'ClassesAndObject.dart';
-
 class books
 {
   String _id;
@@ -22,12 +20,8 @@ class books
 }
 
 String? rent()
-{
-  if (isavailable == null)
-   {
-      print('Book not found.');
-   } 
-    else if (isavailable == false) 
+{ 
+    if (isavailable == false) 
     {
       print('Book is already rent.');
     } 
@@ -35,13 +29,11 @@ String? rent()
     {
       isavailable == true;
       print('Book $title has been rent.');
-    }
-  
+    } 
 }
 
 String? buy()
 {
-  //?print('You buy this book $title ');
   print('Book $title has been bought.');
 }
 
@@ -139,28 +131,48 @@ if(choose=='1')
   print('# Your choice is Exit.See you later!');
    break;
  }
+//? book informations;
 
-
-books b1=books(id:'001',title:'Ikadoli',author:'Hanan Lasheen',LibraryPrice:5,year:2015,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
-books b2=books(id:'002',title:'Opal',author:'Hanan Lasheen',LibraryPrice:4,year:2016,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:false);
+books b1=books(id:'01',title:'Ikadoli',author:'Hanan Lasheen',LibraryPrice:3,year:2016,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b2=books(id:'02',title:'Opal',author:'Hanan Lasheen',LibraryPrice:3,year:2018,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:false);
+books b3=books(id:'03',title:'Amanos',author:'Hanan Lasheen',LibraryPrice:3,year:2020,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b4=books(id:'04',title:'Qweeqol',author:'Hanan Lasheen',LibraryPrice:3,year:2021,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:false);
+books b5=books(id:'05',title:'Soqotra',author:'Hanan Lasheen',LibraryPrice:5,year:2023,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b6=books(id:'06',title:'Siroosh',author:'Hanan Lasheen',LibraryPrice:6,year:2024,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b7=books(id:'07',title:'Hadeeth Alsabah',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
+books b8=books(id:'08',title:'hadeeth Almasaa',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
+books b9=books(id:'09',title:'Kesh Malek',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
+books b10=books(id:'010',title:'Naba Yaqeen',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
+books b11=books(id:'011',title:'Telk Alayam',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
+books b12=books(id:'012',title:'Rasael Men Alquraan',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
 print('''                       Welcome to my Library
               Now you can discover our books and novels!
 type what you want to discover,either the book list,novel list or buy or rent''');
 print('note:enter a capital latter at first of the word!!');
 String explore=stdin.readLineSync()!;
-   
-for(int i=0;i<=4;i++)
+
+  // todo: explore library conten.
+for(int i=0;i<5;i++)
 {
   switch (explore)
  {
   case 'Book List':
      print('This is the cuurent list of books:');
-     print(b1);
-      print(b2);
+     print(b7);
+     print(b8);
+     print(b9);
+     print(b10);
+     print(b11);
+     print(b12);
      break;
   case 'Novel List':
      print('This is the cuurent list of novels:');
+     print(b1);
      print(b2);
+     print(b3);
+     print(b4);
+     print(b5);
+     print(b6);
      break;
   case 'Rent Book':
   b1.rent();
@@ -168,6 +180,7 @@ for(int i=0;i<=4;i++)
   break;
   case 'Buy Book':
   b1.buy();
+  b8.buy();
   break;
   case 'Book Review':
   b1.review();
@@ -178,6 +191,5 @@ for(int i=0;i<=4;i++)
  print('enter another thing you want:');
  explore=stdin.readLineSync()!;
 }
-
  break;}
 }
