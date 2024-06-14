@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'ClassesAndObject.dart';
+
 class books
 {
   String _id;
@@ -12,24 +14,43 @@ class books
   List categories;
   bool isavailable;
 
-  books({required String id,required this.title,required this.author,required double LibraryPrice,required this.year,required this.discription,required this.categories,required bool isavailable}):_id=id,_LibraryPrice=LibraryPrice,price=(LibraryPrice+(LibraryPrice*0.15)),isavailable=true;
+  books({required String id,required this.title,required this.author,required double LibraryPrice,required this.year,required this.discription,required this.categories, required this.isavailable}):_id=id,_LibraryPrice=LibraryPrice,price=(LibraryPrice+(LibraryPrice*0.15));
 
-  //? String get id=>_id;
   String toString()
 {
   return ' book information: $_id,$title,$author,$price,$year,$categories,$discription,$isavailable';
 }
 
-String? rint()
+String? rent()
 {
-  print('You rint the book $title for week ');
+  if (isavailable == null)
+   {
+      print('Book not found.');
+   } 
+    else if (isavailable == false) 
+    {
+      print('Book is already rent.');
+    } 
+    else 
+    {
+      isavailable == true;
+      print('Book $title has been rent.');
+    }
   
 }
+
 String? buy()
 {
-  print('You buy this book $title ');
+  //?print('You buy this book $title ');
+  print('Book $title has been bought.');
+}
+
+String? review()
+{
+  String review=stdin.readLineSync()!;
 }
 }
+
 
 void main()
 {
@@ -120,52 +141,16 @@ if(choose=='1')
  }
 
 
-
- books b1=books(id:'001',title:'Ikadoli',author:'Hanan Lasheen',LibraryPrice:5,year:2015,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
-books b2=books(id:'002',title:'Opal',author:'Hanan Lasheen',LibraryPrice:4,year:2016,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b1=books(id:'001',title:'Ikadoli',author:'Hanan Lasheen',LibraryPrice:5,year:2015,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
+books b2=books(id:'002',title:'Opal',author:'Hanan Lasheen',LibraryPrice:4,year:2016,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:false);
 print('''                       Welcome to my Library
               Now you can discover our books and novels!
 type what you want to discover,either the book list,novel list or buy or rent''');
 print('note:enter a capital latter at first of the word!!');
 String explore=stdin.readLineSync()!;
    
-  //  for(int i=0;i<5;i++)
-  //  {
-  // if(explore=='Book List')
-  // {
-  //   print('This is the cuurent list of books:');
-  //   print(b1);
-  //   print(b2);
-  // }
-
-  // print('If want another thing,then type it :');
-  // explore=stdin.readLineSync()!;
-
-//   if(explore=='Novel List')
-//   {
-//     print('This is the cuurent list of novels:');
-//       print(b2);
-//   }
-//    print('If want another thing,then type it :');
-//   explore=stdin.readLineSync()!;
-
-//   if(explore=='Rent Book')
-//   {
-//      b1.rint();
-//   }
-
-//  print('If want another thing,then type it :');
-//   explore=stdin.readLineSync()!;
-
-//   if(explore=='Buy Book')
-//   {
-//     b1.buy();
-//   }
-
-//  print('you explored every thing in the library !');
-//   break;
-//    }
-
+for(int i=0;i<=4;i++)
+{
   switch (explore)
  {
   case 'Book List':
@@ -178,18 +163,21 @@ String explore=stdin.readLineSync()!;
      print(b2);
      break;
   case 'Rent Book':
-  print('Type book name and we will check if it is available.');
-  b1.rint();
+  b1.rent();
+  b2.rent();
   break;
   case 'Buy Book':
   b1.buy();
   break;
+  case 'Book Review':
+  b1.review();
   default:
   print('you explored every thing in the library !');
-
+  break;
  }
-// explore=stdin.readLineSync()!;
+ print('enter another thing you want:');
+ explore=stdin.readLineSync()!;
+}
+
  break;}
-
-
 }
