@@ -140,11 +140,11 @@ books b4=books(id:'04',title:'Qweeqol',author:'Hanan Lasheen',LibraryPrice:3,yea
 books b5=books(id:'05',title:'Soqotra',author:'Hanan Lasheen',LibraryPrice:5,year:2023,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
 books b6=books(id:'06',title:'Siroosh',author:'Hanan Lasheen',LibraryPrice:6,year:2024,discription:'about fantasy kingdom',categories:['novel','fantasy'],isavailable:true);
 books b7=books(id:'07',title:'Hadeeth Alsabah',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
-books b8=books(id:'08',title:'hadeeth Almasaa',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
-books b9=books(id:'09',title:'Kesh Malek',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
-books b10=books(id:'010',title:'Naba Yaqeen',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
-books b11=books(id:'011',title:'Telk Alayam',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
-books b12=books(id:'012',title:'Rasael Men Alquraan',author:'Adham Sharqawi',LibraryPrice:4,year:2016,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
+books b8=books(id:'08',title:'hadeeth Almasaa',author:'Adham Sharqawi',LibraryPrice:4,year:2017,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
+books b9=books(id:'09',title:'Kesh Malek',author:'Adham Sharqawi',LibraryPrice:4,year:2015,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
+books b10=books(id:'010',title:'Naba Yaqeen',author:'Adham Sharqawi',LibraryPrice:4,year:2014,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
+books b11=books(id:'011',title:'Telk Alayam',author:'Adham Sharqawi',LibraryPrice:4,year:2018,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:true);
+books b12=books(id:'012',title:'Rasael Men Alquraan',author:'Adham Sharqawi',LibraryPrice:4,year:2019,discription:'Various articles on different topics.',categories:['Book','Esay'],isavailable:false);
 print('''                       Welcome to my Library
               Now you can discover our books and novels!
 type what you want to discover,either the book list,novel list or buy or rent''');
