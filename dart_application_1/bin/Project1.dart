@@ -19,7 +19,7 @@ class books
   return ' book information: $_id,$title,$author,$price,$year,$categories,$discription,$isavailable';
 }
 
-String? rent()
+void rent()
 { 
     if (isavailable == false) 
     {
@@ -32,12 +32,12 @@ String? rent()
     } 
 }
 
-String? buy()
+void buy()
 {
   print('Book $title has been bought.');
 }
 
-String? review()
+void review()
 {
   String review=stdin.readLineSync()!;
 }
